@@ -1,82 +1,51 @@
 const User = require("../model/user")
-const bcrypt = require("bcryptjs")
 
-// auth.js
+// register function
 exports.register = async (req, res, next) => {
-  const { username, password } = req.body;
-  bcrypt.hash(password, 10).then(async (hash) => {
+  const { name,email, password } = req.body
+  if (password.length < 6) {
+    return res.status(400).json({ message: "Password less than 6 characters" })
+  }
+  try {
     await User.create({
-      username: "wendykefilwe56@gmail.com",
-      password: hash,
-    })
-      .then((user) =>
-        res.status(200).json({
-          message: "User successfully created",
-           user,
-        })
-      )
-      .catch((error) =>
-        res.status(400).json({
-          message: "User not successful created",
-          error: error.message,
-        })
-      );
-  });
-};
-
-
-
-
-  // auth.js
-exports.login = async (req, res, next) => {
-    const { email, password } = req.body
-    // Check if username and password is provided
-    if (!username || !password) {
-      return res.status(400).json({
-        message: "Username or Password not present",
-      })
-    }
-      try {
-    const user = await User.findOne({ username, password })
-    if (!user) {
-      res.status(401).json({
-        message: "Login not successful",
-        error: "User not found",
-      })
-    } else {
+      name,
+      email,
+      password,
+    }).then(user =>
       res.status(200).json({
-        message: "Login successful",
+        message: "User successfully created",
         user,
       })
-    }
-  } catch (error) {
-    res.status(400).json({
-      message: "An error occurred",
-      error: error.message,
+    )
+  } catch (err) {
+    res.status(401).json({
+      message: "User not successful created",
+      error: error.mesage,
     })
   }
-  
 }
-  //auth.js
 
-
-
-exports.update = async (req, res, next) => {
-    const { role, id } = req.body
-    // Verifying if role and id is presnt
-    if (role && id) {
-      // Verifying if the value of role is admin
-      if (role === "admin") {
-        await User.findById(id)
+  // login function
+  exports.login = async (req, res, next) => {
+    try {
+      const user = await User.findOne({ email, password })
+      if (!user) {
+        res.status(401).json({
+          message: "Login not successful",
+          error: "User not found",
+        })
       } else {
-        res.status(400).json({
-          message: "Role is not admin",
+        res.status(200).json({
+          message: "Login successful",
+          user,
         })
       }
-    } else {
-      res.status(400).json({ message: "Role or Id not present" })
+    } catch (error) {
+      res.status(400).json({
+        message: "An error occurred",
+        error: error.message,
+      })
     }
   }
-
 
   
