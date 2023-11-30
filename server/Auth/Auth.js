@@ -11,16 +11,15 @@ exports.register = async (req, res, next) => {
       name,
       email,
       password,
-    }).then(user =>
+    }).then(User =>
       res.status(200).json({
         message: "User successfully created",
-        user,
+        User,
       })
     )
   } catch (err) {
     res.status(401).json({
       message: "User not successful created",
-      error: error.mesage,
     })
   }
 }
