@@ -17,5 +17,10 @@ content-type: application/json
 }
 
 ### Create Task
-POST http://localhost:5000/api/auth/create
+POST http://localhost:5000/api/create/CreateTask
 content-type: application/json
+
+### Get All Tasks
+GET  http://localhost:5000/api/auth/all
+content-type: application/json
+
