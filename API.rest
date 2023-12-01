@@ -3,9 +3,9 @@ POST http://localhost:5000/api/auth/register
 content-type: application/json
 
 {   
-    "name": "Gugu Sithole",
-    "email": "gugusithole56@gmail.com",
-    "password": "123456"
+    "name": "Emmah Sefara",
+    "email": "emmahsefara56@gmail.com",
+    "password": "1234567"
 }
 ### login user
 POST http://localhost:5000/api/auth/login
@@ -16,3 +16,6 @@ content-type: application/json
     "password": "123456"
 }
 
+### Create Task
+POST http://localhost:5000/api/auth/create
+content-type: application/json
