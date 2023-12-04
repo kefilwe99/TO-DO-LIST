@@ -10,7 +10,9 @@ connectDB();
 
 
 
-app.use("/api/auth", require("./Auth/Route"))
+app.use("/api/auth", require("./routes/auth"))
+
+app.use("/api/task", require("./routes/crud"))
 
 // app.use('api/', require('./routes/crud'));
 app.listen(PORT, () => console.log(`Server Connected to port ${PORT}`))

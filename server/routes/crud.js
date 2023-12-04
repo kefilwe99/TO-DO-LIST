@@ -1,27 +1,25 @@
 const express = require("express")
 const router = express.Router()
 
-const { register, login} = require("../Auth/Auth")
 
+const {CreateTask, getAllTasks, getOneTask, update, DeleteTask} = require("../Controller/task")
 
-const {CreateTask, getAllTasksfunc, getOneTaskfunc} = require("../Controller/task")
-
-
-// Register user Route
-router.route("/register").post(register);
-
-// User login Route
-router.route("/login").post(login);
 
 
 // Create Task Route
 router.route("/create").post(CreateTask);
 
 // getAllTasks Route
-router.route("/all").get(getAllTasksfunc);
+router.route("/all").get(getAllTasks);
 
 // get One Task Route
-router.route("/single/:id").get(getOneTaskfunc);
+router.route("/single/:id").get(getOneTask);
 
+// update specific item by Id
+router.route("/update/:id").put(update);
+
+
+// delete
+router.route("/delete/:id").delete(DeleteTask);
 
 module.exports = router 
