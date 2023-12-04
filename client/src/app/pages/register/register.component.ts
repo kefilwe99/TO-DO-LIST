@@ -19,12 +19,6 @@ export class RegisterComponent {
     private service:UsersService,
     private router: Router
   ) {}
-
-  form: FormGroup = new FormGroup({
-    name: new FormGroup(''),
-    email: new FormGroup(''),
-    password: new FormGroup(''),
-  });
         
   ngOnIit(): void {}
 
