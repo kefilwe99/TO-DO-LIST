@@ -23,7 +23,7 @@ export class TaskServices {
   return this.http.get<any>(`http://localhost:5000/api/task/single/${id}`);
  }
 
- updateTaskFn(id: string):Observable<any> {
+ updateTaskFn(id: string,option: string, name: string, date: Date,time:string):Observable<any> {
   return this.http.get<any>(`http://localhost:5000/api/task/update/${id}`);
  }
 
@@ -31,4 +31,6 @@ export class TaskServices {
   return this.http.delete<any>(`http://localhost:5000/api/task/delete/${id}`);
  }
 }
+
+export { Task };
 

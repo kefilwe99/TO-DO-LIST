@@ -10,6 +10,9 @@ import { TaskServices } from 'src/app/services/task.service';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
+updateTaskFn(arg0: string) {
+throw new Error('Method not implemented.');
+}
  
   tasks: Task[] = [];
 
@@ -56,6 +59,14 @@ export class HomePageComponent implements OnInit {
     this.taskService.DeleteTaskFn(id).subscribe((res: any) => {
       window.location.reload();
       console.log(id)
+    });
+  }
+
+  //update
+  update(id: string, option: string, name: string, date: Date,time:string) {
+    
+    this.taskService.updateTaskFn(id,option,name,date,time).subscribe((res: any) => {
+      console.log(name)
     });
   }
 }

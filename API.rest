@@ -31,15 +31,15 @@ content-type: application/json
 GET  http://localhost:5000/api/task/all
 
 ### Get One Task
-GET  http://localhost:5000/api/task/single/656f0609ff34c8515e526a16
+GET  http://localhost:5000/api/task/single/656f10eaff34c8515e526a62
 
 ### Update item by specific id 
-PUT   http://localhost:5000/api/task/update/656f0609ff34c8515e526a16
+PUT   http://localhost:5000/api/task/update/656f10eaff34c8515e526a62
 content-type: application/json
 
 {
-    "option": "Personal" ,
-    "name": "Samke" ,
+    "option": "Work" ,
+    "name": "Mpho" ,
     "date": "04 December 2023" ,
     "time": "14:00"
     }
