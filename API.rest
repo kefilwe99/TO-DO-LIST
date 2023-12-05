@@ -3,8 +3,8 @@ POST http://localhost:5000/api/auth/register
 content-type: application/json
 
 {   
-    "name": "Emmah Sefara",
-    "email": "emmahsefara56@gmail.com",
+    "name": "Kefilwe Sefara",
+    "email": "kefilwewendy56@gmail.com",
     "password": "1234567"
 }
 ### login user
@@ -12,7 +12,7 @@ POST http://localhost:5000/api/auth/login
 content-type: application/json
 
 { 
-    "email": "emmahsefara56@gmail.com",
+    "email": "kefilwewendy56@gmail.com",
     "password": "1234567"
 }
 
@@ -31,10 +31,17 @@ content-type: application/json
 GET  http://localhost:5000/api/task/all
 
 ### Get One Task
-GET  http://localhost:5000/api/task/single/656da6fed15942767532cb7a
+GET  http://localhost:5000/api/task/single/656f0609ff34c8515e526a16
 
 ### Update item by specific id 
-PUT   http://localhost:5000/api/task/update/656da6fed15942767532cb7a
+PUT   http://localhost:5000/api/task/update/656f0609ff34c8515e526a16
+content-type: application/json
 
+{
+    "option": "Personal" ,
+    "name": "Samke" ,
+    "date": "04 December 2023" ,
+    "time": "14:00"
+    }
 ### Delete by specific id 
-DELETE    http://localhost:5000/api/task/delete/656da6fed15942767532cb7a
+DELETE    http://localhost:5000/api/task/delete/656f0609ff34c8515e526a16

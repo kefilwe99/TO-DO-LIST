@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { UsersService } from 'src/app/services/users.service';
@@ -10,11 +10,18 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  name: string = '';
-  email: string = '';
-  password: string = '';
+  RegisterForm = new FormGroup({
+    name: new FormControl (''),
+    email: new FormControl(''),
+    password: new FormControl('')
+  
+  });
 
   items: User[] = [];
+  password: any;
+  email: any;
+  name: any;
+  userService: any;
   constructor(
     private service:UsersService,
     private router: Router
@@ -22,26 +29,16 @@ export class RegisterComponent {
         
   ngOnIit(): void {}
 
-  onSubmit() {
-    if (!this.name || !this.email || !this.password) {
-       alert('All fileds are required');
-      return;
-    }
-  
-    const object = {
-      name: this.name,
-      email: this.email,
-      password: this.password,
+  Regiser() {
+    let user = {
+      name: this.RegisterForm.value.name || '',
+      email: this.RegisterForm.value.email || '',
+      password: this.RegisterForm.value.email|| ''
     };
-    this.service.registerFn(object).subscribe(
-      (res: any) => {
-        alert(res.message);
-        this.router.navigate(['/home']);
-      },
-      (error) => {
-        alert(error.message + '  ' + error.error._message);
-       
-      }
-    );
+
+    this.service.registerFn(user).subscribe((res: any) => {
+      res
+      this.router.navigate(['/home']);
+    });
   }
 }

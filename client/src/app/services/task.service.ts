@@ -11,8 +11,8 @@ export class TaskServices {
  constructor(private http:HttpClient) { }
 
 
-  CreateFn(user: Task):Observable<any> {
-    return this.http.post<any>('http://localhost:5000/api/task/Create',user);
+  CreateFn(task: Task):Observable<any> {
+    return this.http.post<any>('http://localhost:5000/api/task/Create',task);
   }
 
  getAllTasksFn():Observable<any> {
