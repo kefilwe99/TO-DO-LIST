@@ -67,6 +67,7 @@ option: any;
       date: this.AddForm.value.date || '',
     };
     this.taskService.updateTaskFn(id, task).subscribe((res: any) => {
+      window.location.reload(),
       console.log(res)
     });
   }
