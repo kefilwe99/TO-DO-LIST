@@ -25,7 +25,7 @@ export class LoginComponent {
 
     this.userService.loginFn(user).subscribe((res: any) => {
       res
-      this.router.navigate(['/home']);
+      this.router.navigate(['/dash']);
     });
    
   }

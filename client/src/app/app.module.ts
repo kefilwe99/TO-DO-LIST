@@ -9,6 +9,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     NavbarComponent,
     HomePageComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

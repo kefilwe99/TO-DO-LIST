@@ -3,6 +3,7 @@ import { OutletContext, RouterModule, RouterOutlet, Routes } from '@angular/rout
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
+  { path: 'dash', component: DashboardComponent}
 ]
 
 @NgModule({
