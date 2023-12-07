@@ -3,9 +3,6 @@ const User = require("../model/user")
 // register function
 exports.register = async (req, res, next) => {
   const { name,email, password } = req.body
-  if (password.length < 6) {
-    return res.status(400).json({ message: "Password less than 6 characters" })
-  }
   try {
     await User.create({
       name,

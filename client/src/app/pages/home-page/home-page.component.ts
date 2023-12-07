@@ -63,9 +63,16 @@ throw new Error('Method not implemented.');
   }
 
   //update
-  update(id: string, option: string, name: string, date: Date,time:string) {
+  update(id: any) {
     
-    this.taskService.updateTaskFn(id,option,name,date,time).subscribe((res: any) => {
+    let task = {
+      option: this.AddForm.value.option || '',
+      name: this.AddForm.value.name || '',
+      time: this.AddForm.value.time || '',
+      date: this.AddForm.value.date || '',
+    };
+
+    this.taskService.updateTaskFn(id, task).subscribe((res: any) => {
       console.log(name)
     });
   }

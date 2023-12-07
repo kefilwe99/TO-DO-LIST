@@ -38,7 +38,7 @@ export class RegisterComponent {
 
     this.service.registerFn(user).subscribe((res: any) => {
       res
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
     });
   }
 }

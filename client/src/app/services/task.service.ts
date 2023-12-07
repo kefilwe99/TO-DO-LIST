@@ -12,7 +12,7 @@ export class TaskServices {
 
 
   CreateFn(task: Task):Observable<any> {
-    return this.http.post<any>('http://localhost:5000/api/task/Create',task);
+    return this.http.post<any>('http://localhost:5000/api/task/create',task);
   }
 
  getAllTasksFn():Observable<any> {
@@ -23,8 +23,8 @@ export class TaskServices {
   return this.http.get<any>(`http://localhost:5000/api/task/single/${id}`);
  }
 
- updateTaskFn(id: string,option: string, name: string, date: Date,time:string):Observable<any> {
-  return this.http.get<any>(`http://localhost:5000/api/task/update/${id}`);
+ updateTaskFn(id: string,task: Task):Observable<any> {
+  return this.http.put<any>(`http://localhost:5000/api/task/update/${id}`,task);
  }
 
  DeleteTaskFn(id: string):Observable<any> {
