@@ -83,7 +83,13 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 update
              </button>
-    </td><button type="button" class="btn btn-primary" (click)="delete(task._id)">delete</button>
+    <button type="button" class="btn btn-primary" (click)="delete(task._id)">delete</button>
+</td>
+
+
+
+
+
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,8 +122,6 @@
                             <input type="date" class="form-control" formControlName="date">
                         </div>
                     </div>
-                </div>
-                <div><button type="button" class="btn btn-primary" (click)="Add()">Add</button>
                 </div>
             </form>
         </div>
